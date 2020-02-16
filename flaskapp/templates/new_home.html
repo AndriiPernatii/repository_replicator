@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block button %}
+  <a class="nav-link active" href="/">Home</a>
+  <a class="nav-link" href="/about">About</a>
+{% endblock button %}
+
+{% block content %}
+      <h1 class="cover-heading">Replicate Your GitHub Repository</h1>
+      {% if not g.user.authorized %}
+      <p class="lead">To replicate (fork) the repository, please
+        <a href="{{ url_for('login') }}">login to your GitHub account</a> and
+        then click on the button below.</p>
+
+    <!-- A disabled button -->
+        <p class="lead">
+          <span class="d-inline-block" data-toggle="popover" data-content="This
+          button is disabled. To access this functionality, please log in into
+          your GitHub account first." data-trigger="hover">
+            <a href="#" class="btn btn-lg btn-secondary disabled">Replicate</a>
+          </span>
+        </p>
+      {% else %}
+      <p class="lead"> You are currently logged in as
+          <strong>{{ g.user.username }}</strong></p>
+      <p class="lead">To terminate your connection to GitHub, please
+        <a href="{{ url_for('logout') }}">logout from your
+            GitHub account</a>.</p>
+      <p class="lead">
+        <a href="{{ url_for('replicate') }}"
+          class="btn btn-lg btn-secondary">Replicate</a>
+      </p>
+      {% if g.user.repo_url %}
+       <p>Please follow this URL to the newly-created
+        repository <a href="{{g.user.repo_url}}"><strong>
+        {{g.user.repo_url}}</strong></a></p>
+      {% endif %}
+      {% endif %}
+{% endblock content %}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% if title %}
+    <title>RepRepApp - {{title }}</title>
+  {%else%}
+    <title>RepRepApp</title>
+  {% endif %}
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{{url_for('static', filename='cover.css')}}">
+</head>
+
+<!-- <body class="text-center"> -->
+<body class="text-center">
+
+  <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+      <div class="inner">
+        <h3 class="masthead-brand">RepRepApp</h3>
+        <nav class="nav nav-masthead justify-content-center">
+          {% block button %}{% endblock %}
+        </nav>
+      </div>
+    </header>
+
+    <main role="main" class="inner cover">
+    <!-- Display flashed messages -->
+      <div>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+              <div class="alert alert-{{ category }} alert-dismissible fade show">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+      </div>
+      <!-- Main page content -->
+          {% block content %}{% endblock %}
+    </main>
+
+    <footer class="mastfoot mt-auto text-center">
+      <div class="inner">
+        <p>Take-Home Task for <a href="https://www.datarobot.com/">Datarobot</a>, by <a href="https://www.linkedin.com/in/andrii-pernatii/">Andrii Pernatii</a>.</p>
+      </div>
+    </footer>
+
+  </div>
+<!-- These scripts enable alert dismissal functionality -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<!-- This script enables popovers, for they MUST be initialized with jQuery manually!-->
+<script>
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+});
+</script>
+
+</body>
+
+</html>

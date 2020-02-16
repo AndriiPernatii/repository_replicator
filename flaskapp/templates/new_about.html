@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block button %}
+      <a class="nav-link" href="/">Home</a>
+      <a class="nav-link active" href="/about">About</a>
+{% endblock button %}
+
+{% block content %}
+    <div class="about-top">
+        <p>Welcome to RepRepApp--the app that replicates GitHub repositories into your own repository!
+        It forkes them actually, but it does not matter. What does matter is that it is absolutely free
+        (both of charge and adds)!</p>
+    </div>
+    <div class="about-content">
+    <p style="text-align: center"><strong>IMPORTANT NOTES</strong></p>
+      <ol>
+        <li><p>DO NOT FORGET TO LOG OUT ONCE YOU'RE DONE</p>
+            <p>This app uses safe authentication to your GitHub profile. But as with many other apps,
+            it keeps the connection with GitHub for some time. If you do not log out explicitly, your session will still be on.</p></li>
+        <li><p>YOU DO NOT NEED TO INSTALL ANYTHING</p>
+            <p>You do not have to install the app on premises, just run it in your web-browser. If you do need to install it, see the installation
+        instruction on <a href="https://github.com/AndriiPernatii/repository_replicator">GitHub</a>.</p></li>
+        <li><p>YOU CANNOT REPLICATE YOUR OWN REPOSITORY TO YOUR (SAME) ACCOUNT</p>
+            <p>This app forks a repository. GitHub does not allow its users to fork their own repositories into their respective account. The math is simple.</p></li>
+      </ol>
+    </div>
+{% endblock content %}
