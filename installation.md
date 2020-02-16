@@ -84,7 +84,7 @@ Under the Settings tab of your deployed (and most-probably not working) app, fin
 
 4. **Open the web-site of the app**
 
-Click on the `View` button at the bottom of the `Deploy` tab. Have fun with the app!
+Click on the `View` button at the bottom of the `Deploy` tab. You will be redirected to the web-page with your application. The corresponding URL can be used to acces the app by any person. Have fun!
 
 
 
