@@ -1,4 +1,4 @@
 Flask==1.1.1
-Werkzeug==1.0.0
+Werkzeug==2.2.3
 GitHub-Flask==3.2.0
 gunicorn==19.9.0
